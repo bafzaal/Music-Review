@@ -4,12 +4,15 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 
 const mongoose = require('mongoose');
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 
-var songController = require('./controllers/songController.js');
-var reviewController = require('./controllers/reviewController.js');
-var userController = require('./controllers/userController.js');
+var openController = require('./controllers/openController.js');
+var secureController = require('./controllers/secureController.js');
+// var userController = require('./controllers/userController.js');
 
-mongoose.connect('mongodb+srv://BilalAfzaal:mongodb@cluster0-firjs.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true }, (err) => {
+mongoose.connect('mongodb+srv://BilalAfzaal:mongodb@cluster0-firjs.mongodb.net/Lab5?retryWrites=true&w=majority',{ useNewUrlParser: true }, (err) => {
     if (!err)
         console.log('MongoDB Connected!')
     else
@@ -30,4 +33,5 @@ app.use(function (req, res, next) {
 var port = process.env.PORT || 8080; 
 app.listen(port, () => console.log('Server is running at port 8080'));
 
-// app.use('/', )
+app.use('/api/open', openController);
+app.use('/api/secure', secureController);
