@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+.btn:hover{
+    color: white!important;
+}
+
+.nav-link:hover
+{
+    color: #a6c!important;
+}
+
+.navbar-brand
+{
+    color: #a6c!important;
+    font-family: 'Calistoga', cursive;
+    font-size: 25px;
+    margin-left: -9rem!important;
+}
+
+.logb
+{
+    margin-right: -8rem!important;
+}
+
+.navbar{
+    font-family: 'Calistoga', cursive;
+}
+
+.bcklog
+{
+    background-color: #a6c!important;
+}
+
+.regco:hover
+{
+    color: #a6c!important;
+}
