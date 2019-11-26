@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarOpenComponent } from './navbar-open.component';
+import { OpenHomepage } from './open-homepage.component';
 
 describe('NavbarOpenComponent', () => {
-  let component: NavbarOpenComponent;
-  let fixture: ComponentFixture<NavbarOpenComponent>;
+  let component: OpenHomepage;
+  let fixture: ComponentFixture<OpenHomepage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarOpenComponent ]
+      declarations: [ OpenHomepage ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarOpenComponent);
+    fixture = TestBed.createComponent(OpenHomepage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
