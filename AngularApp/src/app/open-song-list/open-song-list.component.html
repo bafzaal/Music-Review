@@ -79,11 +79,11 @@
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let sng of mf.data" >
+            <tbody *ngFor="let sng of mf.data; let i = index">
+              <tr *ngIf="i<10">
                 <td>{{ sng.songTitle }}</td>
                 <td>{{ sng.artist }}</td>
-                <td>{{ sng.avgRating }}</td>
+                <td>{{ sng.avgRating }}/5</td>
                 <td><button class="btn btn-outline-secondary song-more" >Learn More</button></td>
               </tr>
             </tbody>
