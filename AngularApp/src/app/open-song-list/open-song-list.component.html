@@ -70,17 +70,17 @@
     <h1 class="heading-1"><span>Songs</span></h1> 
 
 
-    <table class="table table-striped table-dark">
+    <table class="table table-striped table-dark" [mfData]="songService.songs" #mf="mfDataTable" mfSortBy= "avgRating" mfSortOrder="desc">
             <thead>
               <tr>
                 <th scope="col">Song Title</th>
                 <th scope="col">Artist</th>
-                <th scope="col">Average Rating</th>
+                <th scope="col"><mfDefaultSorter by="avgRating">Average Rating</mfDefaultSorter></th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let sng of songService.songs" >
+              <tr *ngFor="let sng of mf.data" >
                 <td>{{ sng.songTitle }}</td>
                 <td>{{ sng.artist }}</td>
                 <td>{{ sng.avgRating }}</td>
