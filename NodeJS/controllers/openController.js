@@ -14,8 +14,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/song', (req, res) => {
-    res.json({
-        message: 'List of Songs (Non Authenticated)'
+    Song.find((err, docs) => {
+        if (err)
+        {
+            console.log('Error: ' + JSON.stringify(err, undefined, 2));
+        }
+        else
+        {
+            res.send(docs);
+        }
     });
 });
 

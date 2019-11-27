@@ -138,4 +138,21 @@ footer#main-footer
       padding-right: 80px;
   }
   
+  .song-more
+  {
+      width: 115px!important;
+      height: 40px!important;
+      margin: 0!important;
+      margin-top: -8px!important;
+      padding: 2px!important;
+  }
 
+.table-dark
+{
+    background: #212121;
+}
+
+.table-striped
+{
+    margin-bottom: 0;
+}
