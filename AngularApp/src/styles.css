@@ -58,7 +58,7 @@ footer#main-footer
 
 .background-image
 {
-    width: 100%;
+    width: 105%;
     margin-bottom: 0px;
 }
 
@@ -71,7 +71,7 @@ footer#main-footer
 
 .centered {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #a6c;
@@ -81,19 +81,61 @@ footer#main-footer
 
   .centered2 {
     position: absolute;
-    top: 60%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #a6c;
     font-family: 'Play', sans-serif;
-    font-size: 45px;
+    font-size: 40px;
   }
 
   .centered3 {
     position: absolute;
-    top: 70%;
+    top: 62%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #a6c;
     font-family: 'Play', sans-serif;
   }
+
+  .jumbotron
+  {
+      margin-bottom: 0;
+      background: #eeeeee;
+  }
+
+  .heading-1
+  {
+    color: #a6c;
+    font-family: 'Play', sans-serif;
+    margin-top: -2rem;
+    font-size: 45px;
+    position:relative;
+    text-align: center;
+  }
+  .heading-1:before {
+    content: "";
+    display: block;
+    border-top: solid 2px #a6c;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+  }
+  .heading-1 span {
+    background: #212121;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .welcome-p
+  {
+      margin-top: 30px;
+      font-size: 17px;
+      padding-left: 80px;
+      padding-right: 80px;
+  }
+  
+
