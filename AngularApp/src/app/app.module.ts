@@ -10,7 +10,7 @@ import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
+    routingComponents
   ],
   imports: [
     BrowserModule,

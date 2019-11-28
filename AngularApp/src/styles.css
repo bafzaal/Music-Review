@@ -58,7 +58,7 @@ footer#main-footer
 
 .background-image
 {
-    width: 105%;
+    width: 100%;
     margin-bottom: 0px;
 }
 
@@ -155,4 +155,21 @@ footer#main-footer
 .table-striped
 {
     margin-bottom: 0px;
+}
+
+
+body {
+  background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
+}
+
+.outtable
+{
+    margin: 20px 80px;
+}
+
+.songdescrip
+{
+    font-family: 'Play', sans-serif;
+    color: #212121;
+    font-size: 17px;
 }
