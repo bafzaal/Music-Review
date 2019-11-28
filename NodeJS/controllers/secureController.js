@@ -7,6 +7,8 @@ const verify = require('./verifyToken');
 
 var { Song } = require('../models/song');
 var { User } = require('../models/user');
+var { Review } = require('../models/review');
+
 const { registerValidation, loginValidation } = require('../validation');
 
 

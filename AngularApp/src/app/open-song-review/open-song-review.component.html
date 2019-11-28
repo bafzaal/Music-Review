@@ -70,15 +70,15 @@
 <h1 class="heading-1"><span>Song Details</span></h1>
 <br>
 
-<p class="songdescrip text-center">Song Title: {{songService.selectedItem.songTitle}}</p> 
-<p class="songdescrip text-center">Artist: {{songService.selectedItem.artist}}</p>
-<p class="songdescrip text-center">Album: {{songService.selectedItem.album}}</p>
-<p class="songdescrip text-center">Year: {{songService.selectedItem.year}}</p>
-<p class="songdescrip text-center">Comment: {{songService.selectedItem.comment}}</p>
-<p class="songdescrip text-center">Genre: {{songService.selectedItem.genre}}</p>
-<p class="songdescrip text-center">Average Rating: {{songService.selectedItem.avgRating}}</p>
-<p class="songdescrip text-center">Number of Reviews: {{songService.selectedItem.numReviews}}</p>
-<p class="songdescrip text-center">Number of Ratings: {{songService.selectedItem.numRating}}</p>
+<p class="songdescrip text-center">Song Title: {{songService.selectedItem?.songTitle}}</p> 
+<p class="songdescrip text-center">Artist: {{songService.selectedItem?.artist}}</p>
+<p class="songdescrip text-center">Album: {{songService.selectedItem?.album}}</p>
+<p class="songdescrip text-center">Year: {{songService.selectedItem?.year}}</p>
+<p class="songdescrip text-center">Comment: {{songService.selectedItem?.comment}}</p>
+<p class="songdescrip text-center">Genre: {{songService.selectedItem?.genre}}</p>
+<p class="songdescrip text-center">Average Rating: {{songService.selectedItem?.avgRating}}</p>
+<p class="songdescrip text-center">Number of Reviews: {{songService.selectedItem?.numReviews}}</p>
+<p class="songdescrip text-center">Number of Ratings: {{songService.selectedItem?.numRating}}</p>
 
 <br>
 <br>
@@ -87,6 +87,24 @@
 
 <h1 class="heading-1"><span>Song Reviews</span></h1>
 
+<br>
+<br>
+
+<div class="col s7">
+        <table class="responsive-table highlight">
+            <thead>
+                <tr>
+                    <th>Submitted By</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let rvw of reviewService.reviews">
+                <td >{{ rvw?.submittedBy }}</td>
+            </tr>
+        </table>
+    </div>
+
+<div class="text-center"><button class="btn btn-outline-secondary blackHov" type="submit">View More Reviews</button></div>
+<br>
 
 
 

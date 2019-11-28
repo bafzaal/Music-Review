@@ -173,3 +173,15 @@ body {
     color: #212121;
     font-size: 17px;
 }
+
+.blackHov:hover
+{
+    color: #a6c!important;
+    background-color: #000!important;
+}
+
+.blackHov
+{
+    color: #fff!important;
+    background-color: #000!important;
+}

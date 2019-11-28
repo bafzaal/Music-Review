@@ -8,7 +8,7 @@ import { Song } from './song.model';
   providedIn: 'root'
 })
 export class SongService {
-  selectedItem: Song|{}={};
+  selectedItem: Song;
   songs: Song[];
   readonly baseURL = 'http://localhost:8080/api/open/song/'
 
@@ -23,7 +23,6 @@ export class SongService {
   {
     var base = this.baseURL
     var url = this.router.url;
-    console.log(url.split('/')[3]);
     url = base + url.split('/')[3];
     
     return this.http.get(url);
