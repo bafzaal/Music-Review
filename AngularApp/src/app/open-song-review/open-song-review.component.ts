@@ -68,12 +68,12 @@ export class OpenSongReviewComponent implements OnInit {
     if(document.getElementById("ViewMoreReviewsButton").innerText == "VIEW MORE REVIEWS")
     {
       document.getElementById("ViewMoreReviewsButton").innerText = 'VIEW LESS REVIEWS';
-      document.getElementById("all-others").style.visibility = "visible";
+      document.getElementById("all-others").style.display = "block";
     }
     else
     {
       document.getElementById("ViewMoreReviewsButton").innerText = 'VIEW MORE REVIEWS';
-      document.getElementById("all-others").style.visibility = "hidden";
+      document.getElementById("all-others").style.display = "none";
     }
   }
 

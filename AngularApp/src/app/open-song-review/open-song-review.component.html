@@ -88,27 +88,33 @@
 <h1 class="heading-1"><span>Song Reviews</span></h1>
 
 <br>
-<br>
-
-<div class="col s7">
-        <table class="responsive-table highlight">
-            <thead>
-                <tr>
-                    <th>Submitted By</th>
-                </tr>
-            </thead>
-            <tr *ngFor="let rvw of reviewService.reviews; let i = index">
-                <td *ngIf="i == 0">{{ rvw?.submittedBy }}</td>
-            </tr>
-            <div id="all-others">
-                <tr *ngFor="let rvw of reviewService.reviews; let i = index">
-                    <td *ngIf="i != 0">{{ rvw?.submittedBy }}</td>
-                </tr>
-            </div>
-        </table>
-    </div>
 
 <div class="text-center"><button id="ViewMoreReviewsButton" (click)="viewMore()" class="btn btn-outline-secondary blackHov" type="submit">View More Reviews</button></div>
+
+<br>
+
+<div *ngFor="let rvw of reviewService.reviews; let i = index">
+    <div *ngIf="i == 0" class="card text-white bg-dark" style="max-width: 18rem;">
+        <div class="card-header">Submitted By: {{ rvw?.submittedBy }}</div>
+        <div class="card-body">
+            <h5 class="card-title">Rating = {{ rvw?.ratingForObject }}/5</h5>
+            <p class="card-text">Description: {{ rvw?.description }}</p>
+        </div>
+    </div>
+</div>
+
+<div id="all-others">
+    <div *ngFor="let rvw of reviewService.reviews; let i = index">
+        <div *ngIf="i != 0" class="card text-white bg-dark" style="max-width: 18rem;">
+            <div class="card-header">Submitted By: {{ rvw?.submittedBy }}</div>
+            <div class="card-body">
+                <h5 class="card-title">Rating = {{ rvw?.ratingForObject }}/5</h5>
+                <p class="card-text">Description: {{ rvw?.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <br>
 
 

@@ -59,6 +59,7 @@ footer#main-footer
 .background-image
 {
     width: 100%;
+    height: 650px;
     margin-bottom: 0px;
 }
 
@@ -101,7 +102,7 @@ footer#main-footer
   .jumbotron
   {
       margin-bottom: 0;
-      background: #eeeeee;
+      background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
   }
 
   .heading-1
@@ -188,5 +189,16 @@ body {
 
 #all-others
 {
-    visibility: hidden;
+    display: none;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.card {
+    margin: 0 auto!important; /* Added */
+    float: none!important; /* Added */
+    margin-bottom: 10px!important; /* Added */
 }
