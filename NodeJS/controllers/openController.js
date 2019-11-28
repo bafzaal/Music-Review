@@ -2,6 +2,7 @@ const express = require('express');
 var router = express.Router();
 
 const bcrypt = require('bcryptjs');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 var { Song } = require('../models/song');
 var { User } = require('../models/user');
@@ -22,6 +23,19 @@ router.get('/song', (req, res) => {
         else
         {
             res.send(docs);
+        }
+    });
+});
+
+router.get('/song/:id', (req, res) => {
+    if(ObjectId.isValid(req.params.id) == false)
+        return res.status(400).send('Item Not Found');
+    Song.findById(req.params.id, (err, doc) => {
+        if(err)
+            console.log('Error: ' + JSON.stringify(err, undefined, 2));
+        else
+        {
+            res.send(doc);
         }
     });
 });
