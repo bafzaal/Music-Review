@@ -47,11 +47,34 @@ export class OpenSongReviewComponent implements OnInit {
         }
       }
 
+
+      x.sort(function(a:any, b:any){ 
+      
+        return +new Date(a.date) - +new Date(b.date); 
+      }); 
+
+      x = x.reverse();
+
       this.reviewService.reviews = x;
 
     });
 
 
+  }
+
+  viewMore()
+  {
+    //console.log(document.getElementById("ViewMoreReviewsButton").innerText)
+    if(document.getElementById("ViewMoreReviewsButton").innerText == "VIEW MORE REVIEWS")
+    {
+      document.getElementById("ViewMoreReviewsButton").innerText = 'VIEW LESS REVIEWS';
+      document.getElementById("all-others").style.visibility = "visible";
+    }
+    else
+    {
+      document.getElementById("ViewMoreReviewsButton").innerText = 'VIEW MORE REVIEWS';
+      document.getElementById("all-others").style.visibility = "hidden";
+    }
   }
 
 }

@@ -97,13 +97,18 @@
                     <th>Submitted By</th>
                 </tr>
             </thead>
-            <tr *ngFor="let rvw of reviewService.reviews">
-                <td >{{ rvw?.submittedBy }}</td>
+            <tr *ngFor="let rvw of reviewService.reviews; let i = index">
+                <td *ngIf="i == 0">{{ rvw?.submittedBy }}</td>
             </tr>
+            <div id="all-others">
+                <tr *ngFor="let rvw of reviewService.reviews; let i = index">
+                    <td *ngIf="i != 0">{{ rvw?.submittedBy }}</td>
+                </tr>
+            </div>
         </table>
     </div>
 
-<div class="text-center"><button class="btn btn-outline-secondary blackHov" type="submit">View More Reviews</button></div>
+<div class="text-center"><button id="ViewMoreReviewsButton" (click)="viewMore()" class="btn btn-outline-secondary blackHov" type="submit">View More Reviews</button></div>
 <br>
 
 
