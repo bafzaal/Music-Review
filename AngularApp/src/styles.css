@@ -213,3 +213,21 @@ body {
 {
     color: white;
 }
+
+.regsub
+{
+    background: #a6c!important;
+}
+
+.closesub:hover
+{
+    color: #212121!important;
+}
+
+.output
+{
+    color: #a6c;
+    font-family: 'Calistoga', cursive;
+    margin-bottom: -10px!important;
+    margin-top: 10px!important;
+}

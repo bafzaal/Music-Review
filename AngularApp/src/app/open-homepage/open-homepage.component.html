@@ -41,15 +41,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Forgot password</h3>
+                    <h3>Register</h3>
                     <button type="button" class="close font-weight-light" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
+                <p id="result" class="output text-center"></p>
                 <div class="modal-body">
-                    <p>Reset your password..</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                    <button class="btn btn-primary">Save changes</button>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input [(ngModel)]="userService.registerUserData.username" name="username" type="text" class="form-control rounded-0 cc" required> 
+                        </div>
+                        <div class="form-group">
+                                <label for="">E-Mail</label>
+                                <input [(ngModel)]="userService.registerUserData.email" name="email" type="text" class="form-control rounded-0 cc" required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input [(ngModel)]="userService.registerUserData.password" name="password" type="password" class="form-control rounded-0 cc" required> 
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn closesub" data-dismiss="modal" aria-hidden="true">Close</button>
+                            <button (click)="registerUser()" type="button" class="btn regsub btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
