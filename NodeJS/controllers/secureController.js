@@ -27,12 +27,13 @@ router.post('/', async (req,res) => {
 
     //CREATE AND ASSIGN A TOKEN
     const token = jwt.sign({_id: user._id}, 'qwerty');
-    res.header('auth-token', token).send(token);
+    res.header('auth-token', token).send({token});
 
-    // res.send('Logged In!');
+    //res.send(req.body);
 });
 
 router.get('/song', verify, (req, res) => {
+    console.log("before sendings")
     res.send(req.user);
     //User.findOne({_id: req.user});
 });

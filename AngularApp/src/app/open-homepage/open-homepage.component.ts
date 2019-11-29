@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { SongService } from '../shared/song.service';
 import { Song } from '../shared/song.model';
@@ -17,7 +18,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class OpenHomepage implements OnInit {
 
-  constructor(private songService: SongService, private userService: UserService) { }
+  constructor(private songService: SongService, private userService: UserService, private _router: Router) { }
 
   ngOnInit() {
   }
@@ -36,6 +37,24 @@ export class OpenHomepage implements OnInit {
       password: ""
     }
 
+  }
+
+  LogIn()
+  {
+    //console.log(this.userService.loggedUserData)
+    this.userService.log(this.userService.loggedUserData).subscribe(
+      (res:any) => { console.log(res.token)
+      localStorage.setItem('token',res.token);
+      this._router.navigate(['/api/secure'])
+      document.getElementById('result2').innerText = ""
+      },
+      err => document.getElementById('result2').innerText = err.error
+    )
+
+    // this.userService.authenticate(this.userService.loggedUserData).subscribe(
+    //   res =>  console.log(res),
+    //   err => console.log(err)
+    // )
 
   }
 

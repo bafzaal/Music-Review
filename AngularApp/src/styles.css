@@ -231,3 +231,8 @@ body {
     margin-bottom: -10px!important;
     margin-top: 10px!important;
 }
+
+#result2
+{
+    color: red!important;
+}
