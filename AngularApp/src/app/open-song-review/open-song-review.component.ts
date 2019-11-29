@@ -34,16 +34,16 @@ export class OpenSongReviewComponent implements OnInit {
     this.reviewService.getReviewList().subscribe((res :any) => {
 
       var x = [];
-      var n = 0;
 
       this.reviewService.reviews = res as Review[];
+
+      this.getSongDetails();
 
       for(var i = 0; i < this.reviewService.reviews.length; i++)
       {
         if(this.songService.selectedItem.objectID == this.reviewService.reviews[i].objectID)
         {
-          x[n] = this.reviewService.reviews[i];
-          n++;
+          x.push(this.reviewService.reviews[i]);
         }
       }
 
@@ -76,5 +76,6 @@ export class OpenSongReviewComponent implements OnInit {
       document.getElementById("all-others").style.display = "none";
     }
   }
+
 
 }

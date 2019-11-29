@@ -6,6 +6,7 @@ import { DataTableModule } from "@pascalhonegger/ng-datatable";
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { from } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    DataTableModule
+    DataTableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

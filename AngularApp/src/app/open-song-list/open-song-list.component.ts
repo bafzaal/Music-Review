@@ -25,4 +25,14 @@ export class OpenSongListComponent implements OnInit {
     });
   }
 
+  submitSearch(event, formData)
+  {
+    //console.log(event);
+    this.songService.getSearchString(formData.value.q).subscribe((res) => {
+      this.songService.matchedSongs = res as Song[];
+      console.log(res);
+    });
+    //console.log(formData.value.q);
+  }
+
 }

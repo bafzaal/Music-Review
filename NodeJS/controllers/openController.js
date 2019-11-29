@@ -3,6 +3,7 @@ var router = express.Router();
 
 const bcrypt = require('bcryptjs');
 var ObjectId = require('mongoose').Types.ObjectId;
+var stringSimilarity = require('string-similarity');
 
 var { Song } = require('../models/song');
 var { User } = require('../models/user');
@@ -69,8 +70,48 @@ router.get('/song/reviews/:id', (req, res) => {
 });
 
 router.get('/search', (req, res) => {
-    res.json({
-        message: 'Search results here'
+    var x = [];
+    var send = [];
+    Song.find((err, docs) => {
+        if (err)
+        {
+            console.log('Error: ' + JSON.stringify(err, undefined, 2));
+        }
+        else
+        {
+            comp = req.query.string;
+            //console.log(comp);
+            x = docs;
+            //console.log(x[0].songTitle);
+            for(var i = 0; i < x.length; i ++)
+            {
+                if(stringSimilarity.compareTwoStrings(x[i].songTitle,comp) > 0.5)
+                {
+                    send.push(x[i]);
+                }
+                else if(stringSimilarity.compareTwoStrings(x[i].artist,comp) > 0.5)
+                {
+                    send.push(x[i]);
+                }
+                else if(stringSimilarity.compareTwoStrings(x[i].album,comp) > 0.5)
+                {
+                    send.push(x[i]);
+                }
+                else if(stringSimilarity.compareTwoStrings(x[i].year,comp) > 0.5)
+                {
+                    send.push(x[i]);
+                }
+                else if(stringSimilarity.compareTwoStrings(x[i].comment,comp) > 0.5)
+                {
+                    send.push(x[i]);
+                }
+                else if(stringSimilarity.compareTwoStrings(x[i].genre,comp) > 0.5)
+                {
+                    send.push(x[i]);
+                }
+            }
+            res.send(send);
+        }
     });
 });
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router'
 import { Observable} from 'rxjs';
 import { Song } from './song.model';
@@ -10,6 +10,8 @@ import { Song } from './song.model';
 export class SongService {
   selectedItem: Song;
   songs: Song[];
+  matchedSongs: Song[];
+  searchString: String;
   readonly baseURL = 'http://localhost:8080/api/open/song/'
 
   constructor(private http : HttpClient, private router : Router) { }
@@ -26,6 +28,13 @@ export class SongService {
     url = base + url.split('/')[3];
     
     return this.http.get(url);
+  }
+
+  getSearchString(str :string)
+  {
+    let params = new HttpParams().set("string", str);
+
+    return this.http.get('http://localhost:8080/api/open/search/', {params: params}); 
   }
 
 }

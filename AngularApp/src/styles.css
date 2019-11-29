@@ -202,3 +202,14 @@ body {
     float: none!important; /* Added */
     margin-bottom: 10px!important; /* Added */
 }
+
+.search-btn
+{
+    color: #a6c;
+    background: #212121;
+}
+
+.search-btn:hover
+{
+    color: white;
+}
