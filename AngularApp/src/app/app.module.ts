@@ -11,13 +11,15 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { SecureSongListComponent } from './secure-song-list/secure-song-list.component';
 import { SecureSongReviewComponent } from './secure-song-review/secure-song-review.component';
+import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     SecureSongListComponent,
-    SecureSongReviewComponent
+    SecureSongReviewComponent,
+    AdminHomepageComponent
   ],
   imports: [
     BrowserModule,

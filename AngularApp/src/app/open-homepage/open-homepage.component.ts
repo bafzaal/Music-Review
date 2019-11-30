@@ -45,14 +45,29 @@ export class OpenHomepage implements OnInit {
   {
     //console.log("Asdf")
     //console.log(this.userService.xxx);
+
     this.userService.log(this.userService.loggedUserData).subscribe(
       (res:any) => { console.log(res.token)
       localStorage.setItem('token',res.token);
-      this._router.navigate(['/api/secure'])
       document.getElementById('result2').innerText = ""
+      this.userService.findUser(this.userService.loggedUserData).subscribe(
+        (res:any) => {
+        console.log(res.admin);
+        if(res.admin == false)
+        {
+          this._router.navigate(['/api/secure']);
+        }
+        if(res.admin == true)
+        {
+          this._router.navigate(['/api/admin']);
+        }
+        },
+        err => console.log(err.error)
+      )
       },
       err => document.getElementById('result2').innerText = err.error
     )
+    
 
   }
 

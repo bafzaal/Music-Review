@@ -32,6 +32,11 @@ router.post('/', async (req,res) => {
     //res.send(req.body);
 });
 
+router.post('/get-user', async (req,res) => {
+    const user = await User.findOne({email: req.body.email});
+    res.send(user);
+})
+
 router.post('/song/', verify, (req, res) => {
     var newSong = new Song
     ({
