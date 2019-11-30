@@ -10,12 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { SecureSongListComponent } from './secure-song-list/secure-song-list.component';
+import { SecureSongReviewComponent } from './secure-song-review/secure-song-review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    SecureSongListComponent
+    SecureSongListComponent,
+    SecureSongReviewComponent
   ],
   imports: [
     BrowserModule,

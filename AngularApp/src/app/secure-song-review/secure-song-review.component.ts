@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { SongService } from '../shared/song.service';
 import { Song } from '../shared/song.model';
@@ -6,18 +7,22 @@ import { Song } from '../shared/song.model';
 import { ReviewService } from '../shared/review.service';
 import { Review } from '../shared/review.model';
 
+import { UserService } from '../shared/user.service';
+import { User } from '../shared/user.model';
+
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-open-song-review',
-  templateUrl: './open-song-review.component.html',
-  styleUrls: ['./open-song-review.component.css'],
+  selector: 'app-secure-song-review',
+  templateUrl: './secure-song-review.component.html',
+  styleUrls: ['./secure-song-review.component.css'],
   providers: [SongService, ReviewService]
 })
-export class OpenSongReviewComponent implements OnInit {
+export class SecureSongReviewComponent implements OnInit {
 
-  constructor(private songService: SongService, private reviewService: ReviewService) { }
+  constructor(private songService: SongService, private reviewService: ReviewService, private _router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    
     this.getSongDetails();
     this.getReviews();
   }
@@ -78,5 +83,34 @@ export class OpenSongReviewComponent implements OnInit {
     }
   }
 
+  logout()
+  {
+    localStorage.removeItem('token');
+    this._router.navigate(['/api/open']);
+  }
+
+  onSubmitReview(form: NgForm)
+  {
+    form.value.objectID = this.songService.selectedItem.objectID;
+    if(form.value.submittedBy == null || form.value.submittedBy == "" || form.value.submittedBy == undefined)
+    {
+      document.getElementById('username-missing').style.display = "block";
+    }
+    else if (form.value.ratingForObject < 0 || form.value.ratingForObject > 5)
+    {
+      document.getElementById('username-missing').style.display = "none";
+      document.getElementById('rating-wrong').style.display = "block";
+    }
+    else
+    {
+      this.reviewService.addReviewRating(form.value).subscribe((res) => 
+      {
+        form.reset();
+        document.getElementById('rating-wrong').style.display = "none";
+        document.getElementById('username-missing').style.display = "none";
+        this.getReviews();
+      });
+    }
+  }
 
 }

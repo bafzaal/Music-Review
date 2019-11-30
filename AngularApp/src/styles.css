@@ -394,3 +394,13 @@ fieldset {
 {
   display: none;
 }
+
+#username-missing
+{
+  display: none;
+}
+
+#rating-wrong
+{
+  display: none;
+}

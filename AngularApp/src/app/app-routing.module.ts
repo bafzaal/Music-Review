@@ -5,6 +5,7 @@ import { OpenSongListComponent } from './open-song-list/open-song-list.component
 import { OpenSongReviewComponent } from './open-song-review/open-song-review.component';
 import { SecureHomepageComponent } from './secure-homepage/secure-homepage.component';
 import { SecureSongListComponent } from './secure-song-list/secure-song-list.component';
+import { SecureSongReviewComponent } from './secure-song-review/secure-song-review.component';
 import { AuthGuard } from './auth.guard';
 
 
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'api/secure/song', 
     component: SecureSongListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'api/secure/:id', 
+    component: SecureSongReviewComponent,
     canActivate: [AuthGuard]
   },
 ];

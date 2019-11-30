@@ -31,6 +31,7 @@ export class OpenHomepage implements OnInit {
       res =>  document.getElementById('result').innerText = "Registration Complete",
       err => document.getElementById('result').innerText = err.error
     )
+    
     this.userService.registerUserData = 
     {
       username: "",
@@ -42,7 +43,8 @@ export class OpenHomepage implements OnInit {
 
   LogIn()
   {
-    //console.log(this.userService.loggedUserData)
+    //console.log("Asdf")
+    //console.log(this.userService.xxx);
     this.userService.log(this.userService.loggedUserData).subscribe(
       (res:any) => { console.log(res.token)
       localStorage.setItem('token',res.token);
@@ -51,11 +53,6 @@ export class OpenHomepage implements OnInit {
       },
       err => document.getElementById('result2').innerText = err.error
     )
-
-    // this.userService.authenticate(this.userService.loggedUserData).subscribe(
-    //   res =>  console.log(res),
-    //   err => console.log(err)
-    // )
 
   }
 

@@ -33,7 +33,6 @@ router.post('/', async (req,res) => {
 });
 
 router.post('/song/', verify, (req, res) => {
-    console.log(req.body);
     var newSong = new Song
     ({
         objectID: req.body.objectID,
@@ -45,6 +44,26 @@ router.post('/song/', verify, (req, res) => {
         genre: req.body.genre
     });
     newSong.save((err, doc) => {
+        if (err)
+        {
+            console.log('Error: ' + JSON.stringify(err, undefined, 2));
+        }
+        else
+        {
+            res.send(doc);
+        }
+    });
+});
+
+router.post('/add-review-rating/', verify, (req, res) => {
+    var newReview = new Review
+    ({
+        objectID: req.body.objectID,
+        submittedBy: req.body.submittedBy,
+        ratingForObject: req.body.ratingForObject,
+        description: req.body.description
+    });
+    newReview.save((err, doc) => {
         if (err)
         {
             console.log('Error: ' + JSON.stringify(err, undefined, 2));

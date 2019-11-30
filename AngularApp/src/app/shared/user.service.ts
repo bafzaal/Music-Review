@@ -11,8 +11,8 @@ export class UserService {
   selectedItem: User|{}={};
   users: User[];
   registerUserData: User|{}={};
+  xxx: User|{}={};
   loggedUserData: User|{}={};
-  tokenValue: string="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Z…zNzV9.dGS7-vAtqzbpslyajAQAVv4JMSMApnOXGxUAT-QBf5I";
   readonly baseURL = 'http://localhost:8080/api/open/register'
 
   constructor(private http : HttpClient) { }
@@ -57,5 +57,4 @@ export class UserService {
   {
     return localStorage.getItem('token');
   }
-
 }

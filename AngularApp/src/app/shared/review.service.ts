@@ -19,4 +19,9 @@ export class ReviewService {
     return this.http.get(this.baseURL);
   }
 
+  addReviewRating(rvw: Review)
+  {
+    return this.http.post('http://localhost:8080/api/secure/add-review-rating/', rvw);
+  }
+
 }

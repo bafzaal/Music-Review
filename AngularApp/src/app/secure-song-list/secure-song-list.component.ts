@@ -68,7 +68,7 @@ export class SecureSongListComponent implements OnInit {
         console.log(res);
         form.reset();
         document.getElementById('title-missing').style.display = "none";
-      document.getElementById('artist-missing').style.display = "none";
+        document.getElementById('artist-missing').style.display = "none";
       });
     }
     this.getSongs();
