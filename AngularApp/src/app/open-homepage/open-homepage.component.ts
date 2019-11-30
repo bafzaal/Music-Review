@@ -21,6 +21,7 @@ export class OpenHomepage implements OnInit {
   constructor(private songService: SongService, private userService: UserService, private _router: Router) { }
 
   ngOnInit() {
+    localStorage.removeItem('token');
   }
 
   registerUser()
@@ -57,5 +58,7 @@ export class OpenHomepage implements OnInit {
     // )
 
   }
+
+  
 
 }

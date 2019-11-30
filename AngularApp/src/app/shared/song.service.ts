@@ -37,4 +37,9 @@ export class SongService {
     return this.http.get('http://localhost:8080/api/open/search/', {params: params}); 
   }
 
+  addSong(sng: Song)
+  {
+    return this.http.post('http://localhost:8080/api/secure/song/', sng);
+  }
+
 }

@@ -9,11 +9,13 @@ import { from } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { SecureSongListComponent } from './secure-song-list/secure-song-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    SecureSongListComponent
   ],
   imports: [
     BrowserModule,

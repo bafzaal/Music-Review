@@ -32,6 +32,31 @@ router.post('/', async (req,res) => {
     //res.send(req.body);
 });
 
+router.post('/song/', verify, (req, res) => {
+    console.log(req.body);
+    var newSong = new Song
+    ({
+        objectID: req.body.objectID,
+        songTitle: req.body.songTitle,
+        artist: req.body.artist,
+        album: req.body.album,
+        year: req.body.year,
+        comment: req.body.comment,
+        genre: req.body.genre
+    });
+    newSong.save((err, doc) => {
+        if (err)
+        {
+            console.log('Error: ' + JSON.stringify(err, undefined, 2));
+        }
+        else
+        {
+            res.send(doc);
+        }
+    });
+});
+
+
 router.get('/song', verify, (req, res) => {
     console.log("before sendings")
     res.send(req.user);
