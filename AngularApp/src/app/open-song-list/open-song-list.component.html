@@ -71,7 +71,7 @@
 
 
     <div class="outtable">
-    <table class="table table-striped table-dark" [mfData]="songService.songs" #mf="mfDataTable" mfSortBy= "avgRating" mfSortOrder="desc">
+    <table class="table table-striped table-dark" [mfData]="songService.songs" #mf="mfDataTable" mfRowsOnPage="10" mfSortBy= "avgRating" mfSortOrder="desc">
             <thead>
               <tr>
                 <th scope="col">Song Title</th>
