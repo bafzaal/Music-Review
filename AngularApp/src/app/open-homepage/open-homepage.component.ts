@@ -53,13 +53,21 @@ export class OpenHomepage implements OnInit {
       this.userService.findUser(this.userService.loggedUserData).subscribe(
         (res:any) => {
         console.log(res.admin);
-        if(res.admin == false)
+        if(res.activate == false)
         {
-          this._router.navigate(['/api/secure']);
+          console.log("hi");
+          document.getElementById('result2').innerText = "Error: Account is deactivated. Email admin@uwo.ca to resolve the issue.";
         }
-        if(res.admin == true)
+        else
         {
-          this._router.navigate(['/api/admin']);
+          if(res.admin == false)
+          {
+            this._router.navigate(['/api/secure']);
+          }
+          if(res.admin == true)
+          {
+            this._router.navigate(['/api/admin']);
+          }
         }
         },
         err => console.log(err.error)

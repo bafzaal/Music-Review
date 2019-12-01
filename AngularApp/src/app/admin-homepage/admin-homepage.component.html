@@ -43,10 +43,10 @@
                 <td>{{ usr.username }}</td>
                 <td>{{ usr.email }}</td>
                 <td>{{ usr.admin }}</td>
-                <td>?????</td>
+                <td>{{ usr.activate }}</td>
                 <td>
                     <button (click)="grantPriv(usr._id)" class="btn btn-outline-secondary song-more">Change Access</button>
-                    <button (click)="actdeact()" class="btn btn-outline-secondary song-more">(De)activate</button>
+                    <button (click)="actdeact(usr._id)" class="btn btn-outline-secondary song-more">(De)activate</button>
                 </td>
                 </tr>
             </tbody>

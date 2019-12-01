@@ -48,9 +48,12 @@ export class AdminHomepageComponent implements OnInit {
     });
   }
 
-  actdeact()
+  actdeact(s: string)
   {
-    console.log("1");
+    this.userService.updateUserActivation(s).subscribe((res) => {
+      console.log(res);
+      this.findAllUsers();
+    });
   }
 
 }

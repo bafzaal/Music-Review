@@ -44,6 +44,13 @@ export class UserService {
     return this.http.get(base);
   }
 
+  updateUserActivation(str: string)
+  {
+    var base = 'http://localhost:8080/api/secure/activation/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
   authenticate(User)
   {
     // let headers: HttpHeaders = new HttpHeaders();
