@@ -16,14 +16,15 @@ import { Router } from '@angular/router';
   selector: 'app-admin-homepage',
   templateUrl: './admin-homepage.component.html',
   styleUrls: ['./admin-homepage.component.css'],
-  providers: [User, UserService]
+  providers: [User, UserService, SongService]
 })
 export class AdminHomepageComponent implements OnInit {
 
-  constructor(private _router: Router, private userService: UserService, private user: User) { }
+  constructor(private _router: Router, private userService: UserService, private user: User, private songService: SongService) { }
 
   ngOnInit() {
     this.findAllUsers();
+    this.getSongs();
   }
 
   logout()
@@ -53,6 +54,21 @@ export class AdminHomepageComponent implements OnInit {
     this.userService.updateUserActivation(s).subscribe((res) => {
       console.log(res);
       this.findAllUsers();
+    });
+  }
+
+  getSongs()
+  {
+    this.songService.getSongList().subscribe((res) => {
+      this.songService.songs = res as Song[];
+    });
+  }
+
+  changeVis(s: string)
+  {
+    this.songService.changeVisibility(s).subscribe((res) => {
+      console.log(res);
+      this.getSongs();
     });
   }
 

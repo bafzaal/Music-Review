@@ -42,4 +42,11 @@ export class SongService {
     return this.http.post('http://localhost:8080/api/secure/song/', sng);
   }
 
+  changeVisibility(str :string)
+  {
+    var base = 'http://localhost:8080/api/secure/song/visibility/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
 }

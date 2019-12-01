@@ -10,4 +10,5 @@ export class Song {
     avgRating: number;
     numReviews: number;
     numRating: number;
+    visibility: boolean;
 }

@@ -51,7 +51,7 @@ router.get('/get-user', (req, res) => {
     });
 });
 
-router.get('/get-user/:id', (req, res) => {
+router.get('/get-user/:id', verify, (req, res) => {
     //console.log(req.params.id)
     if(ObjectId.isValid(req.params.id) == false)
         return res.status(400).send('Item Not Found');
@@ -73,7 +73,7 @@ router.get('/get-user/:id', (req, res) => {
 
 });
 
-router.get('/activation/:id', (req, res) => {
+router.get('/activation/:id', verify, (req, res) => {
     //console.log(req.params.id)
     if(ObjectId.isValid(req.params.id) == false)
         return res.status(400).send('Item Not Found');
@@ -84,6 +84,28 @@ router.get('/activation/:id', (req, res) => {
             console.error('Error retrieving by id!');
         } else {
             product.update({ activate: !product.activate }, { new: true }, (err, doc) => {
+                if(err)
+                    console.log('Error: ' + JSON.stringify(err, undefined, 2));
+                else
+                    res.send(product);
+            });
+            //res.json(product);
+        }
+    })
+
+});
+
+router.get('/song/visibility/:id', (req, res) => {
+    //console.log(req.params.id)
+    if(ObjectId.isValid(req.params.id) == false)
+        return res.status(400).send('Item Not Found');
+
+    Song.findById(req.params.id)
+    .exec(function (err, product) {
+        if (err) {
+            console.error('Error retrieving by id!');
+        } else {
+            product.update({ visibility: !product.visibility }, { new: true }, (err, doc) => {
                 if(err)
                     console.log('Error: ' + JSON.stringify(err, undefined, 2));
                 else
