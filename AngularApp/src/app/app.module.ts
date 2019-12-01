@@ -13,6 +13,7 @@ import { SecureSongListComponent } from './secure-song-list/secure-song-list.com
 import { SecureSongReviewComponent } from './secure-song-review/secure-song-review.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ActivateAccountComponent } from './activate-account/activate-account.co
     SecureSongListComponent,
     SecureSongReviewComponent,
     AdminHomepageComponent,
-    ActivateAccountComponent
+    ActivateAccountComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ export class UserService {
   xxx: User|{}={};
   loggedUserData: User|{}={};
   activateUserData: User|{}={};
+  changePolicy: User|{}={};
   readonly baseURL = 'http://localhost:8080/api/open/register'
 
   constructor(private http : HttpClient) { }
@@ -26,6 +27,11 @@ export class UserService {
   activate(User)
   {
     return this.http.post('http://localhost:8080/api/secure/activate', User);
+  }
+
+  upPolicy(User)
+  {
+    return this.http.post('http://localhost:8080/api/secure/update-policy', User);
   }
 
   log(User)
