@@ -49,25 +49,30 @@ export class SecureSongListComponent implements OnInit {
 
   submitSearch(event, formData)
   {
-    //console.log(event);
-    this.songService.getSearchString(formData.value.q).subscribe((res) => {
-      this.songService.matchedSongs = res as Song[];
+    if(formData.value.q == null)
+    {
+      console.log(" ")
+    }
+    else
+    {
+      this.songService.getSearchString(formData.value.q).subscribe((res) => {
+        this.songService.matchedSongs = res as Song[];
 
-      var x = [];
+        var x = [];
 
-      for(var i = 0; i < this.songService.matchedSongs.length; i++)
-      {
-        if(this.songService.matchedSongs[i].visibility == true)
+        for(var i = 0; i < this.songService.matchedSongs.length; i++)
         {
-          x.push(this.songService.matchedSongs[i]);
+          if(this.songService.matchedSongs[i].visibility == true)
+          {
+            x.push(this.songService.matchedSongs[i]);
+          }
         }
-      }
 
-      this.songService.matchedSongs = x;
+        this.songService.matchedSongs = x;
 
-      console.log(res);
-    });
-    //console.log(formData.value.q);
+        console.log(res);
+      });
+    }
   }
 
   logout()

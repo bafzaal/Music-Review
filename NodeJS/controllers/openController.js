@@ -93,19 +93,19 @@ router.get('/search', (req, res) => {
                 {
                     send.push(x[i]);
                 }
-                else if(stringSimilarity.compareTwoStrings(x[i].album,comp) > 0.5)
+                else if(x[i].album != null && stringSimilarity.compareTwoStrings(x[i].album,comp) > 0.5)
                 {
                     send.push(x[i]);
                 }
-                else if(stringSimilarity.compareTwoStrings(x[i].year,comp) > 0.5)
+                else if(x[i].year != null && stringSimilarity.compareTwoStrings(x[i].year,comp) > 0.5)
                 {
                     send.push(x[i]);
                 }
-                else if(stringSimilarity.compareTwoStrings(x[i].comment,comp) > 0.5)
+                else if(x[i].comment != null && stringSimilarity.compareTwoStrings(x[i].comment,comp) > 0.5)
                 {
                     send.push(x[i]);
                 }
-                else if(stringSimilarity.compareTwoStrings(x[i].genre,comp) > 0.5)
+                else if(x[i].genre != null && stringSimilarity.compareTwoStrings(x[i].genre,comp) > 0.5)
                 {
                     send.push(x[i]);
                 }
