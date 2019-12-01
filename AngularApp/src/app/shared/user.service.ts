@@ -32,6 +32,18 @@ export class UserService {
     return this.http.post('http://localhost:8080/api/secure/get-user', User);
   }
 
+  findAllUsers()
+  {
+    return this.http.get('http://localhost:8080/api/secure/get-user');
+  }
+
+  updateUserAccess(str: string)
+  {
+    var base = 'http://localhost:8080/api/secure/get-user/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
   authenticate(User)
   {
     // let headers: HttpHeaders = new HttpHeaders();

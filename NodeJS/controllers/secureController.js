@@ -8,6 +8,7 @@ const verify = require('./verifyToken');
 var { Song } = require('../models/song');
 var { User } = require('../models/user');
 var { Review } = require('../models/review');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 const { registerValidation, loginValidation } = require('../validation');
 
@@ -36,6 +37,42 @@ router.post('/get-user', async (req,res) => {
     const user = await User.findOne({email: req.body.email});
     res.send(user);
 })
+
+router.get('/get-user', (req, res) => {
+    User.find((err, docs) => {
+        if (err)
+        {
+            console.log('Error: ' + JSON.stringify(err, undefined, 2));
+        }
+        else
+        {
+            res.send(docs);
+        }
+    });
+});
+
+router.get('/get-user/:id', (req, res) => {
+    //console.log(req.params.id)
+    if(ObjectId.isValid(req.params.id) == false)
+        return res.status(400).send('Item Not Found');
+
+    User.findById(req.params.id)
+    .exec(function (err, product) {
+        if (err) {
+            console.error('Error retrieving by id!');
+        } else {
+            product.update({ admin: !product.admin }, { new: true }, (err, doc) => {
+                if(err)
+                    console.log('Error: ' + JSON.stringify(err, undefined, 2));
+                else
+                    res.send(product);
+            });
+            //res.json(product);
+        }
+    })
+
+});
+
 
 router.post('/song/', verify, (req, res) => {
     var newSong = new Song
