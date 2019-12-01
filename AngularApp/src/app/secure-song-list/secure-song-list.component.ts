@@ -27,6 +27,23 @@ export class SecureSongListComponent implements OnInit {
   {
     this.songService.getSongList().subscribe((res) => {
       this.songService.songs = res as Song[];
+      this.songService.topSongs = this.songService.songs;
+
+      this.songService.topSongs.sort(function(a, b) {
+        return (b.avgRating) - (a.avgRating);
+      });
+
+      var x = [];
+      for(var i = 0; i < this.songService.topSongs.length; i++)
+      {
+        if(this.songService.topSongs[i].visibility == true)
+        {
+          x.push(this.songService.topSongs[i]);
+        }
+      }
+
+      this.songService.topSongs = x;
+
     });
   }
 

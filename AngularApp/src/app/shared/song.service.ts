@@ -10,6 +10,7 @@ import { Song } from './song.model';
 export class SongService {
   selectedItem: Song;
   songs: Song[];
+  topSongs: Song[];
   matchedSongs: Song[];
   searchString: String;
   readonly baseURL = 'http://localhost:8080/api/open/song/'
