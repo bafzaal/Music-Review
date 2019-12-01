@@ -73,6 +73,32 @@ router.get('/get-user/:id', verify, (req, res) => {
 
 });
 
+router.post('/activate', async (req,res) => {
+    const { error } = loginValidation(req.body);
+    if(error) return res.status(400).send(error.details[0].message);
+
+    //CHECK IF EMAIL EXISTS IN DB
+    const user = await User.findOne({email: req.body.email});
+    if(!user) return res.status(400).send('Email not found!');
+
+    const validPass = await bcrypt.compare(req.body.password, user.password);
+    if(!validPass) return res.status(400).send('Incorrect Password!')
+
+    User.findOne({email: req.body.email}).exec(function (err, product) {
+        if (err) {
+            console.error('Error retrieving by id!');
+        } else {
+            product.update({ activate: true }, { new: true }, (err, doc) => {
+                if(err)
+                    console.log('Error: ' + JSON.stringify(err, undefined, 2));
+                else
+                    res.send(product);
+            });
+        }
+    })
+
+})
+
 router.get('/activation/:id', verify, (req, res) => {
     //console.log(req.params.id)
     if(ObjectId.isValid(req.params.id) == false)

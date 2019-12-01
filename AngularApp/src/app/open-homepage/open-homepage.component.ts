@@ -28,7 +28,10 @@ export class OpenHomepage implements OnInit {
   {
     console.log(this.userService.registerUserData);
     this.userService.register(this.userService.registerUserData).subscribe(
-      res =>  document.getElementById('result').innerText = "Registration Complete",
+      res => { 
+        document.getElementById('result').innerText = "Registration Complete. Click the following link to activate your account.";
+        document.getElementById('activate-reg').style.display = "block";
+    },
       err => document.getElementById('result').innerText = err.error
     )
     
@@ -79,6 +82,9 @@ export class OpenHomepage implements OnInit {
 
   }
 
-  
+  activateAccount()
+  {
+    console.log("hi")
+  }
 
 }

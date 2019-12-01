@@ -13,6 +13,7 @@ export class UserService {
   registerUserData: User|{}={};
   xxx: User|{}={};
   loggedUserData: User|{}={};
+  activateUserData: User|{}={};
   readonly baseURL = 'http://localhost:8080/api/open/register'
 
   constructor(private http : HttpClient) { }
@@ -20,6 +21,11 @@ export class UserService {
   register(User)
   {
     return this.http.post(this.baseURL, User);
+  }
+
+  activate(User)
+  {
+    return this.http.post('http://localhost:8080/api/secure/activate', User);
   }
 
   log(User)

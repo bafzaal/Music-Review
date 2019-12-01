@@ -7,6 +7,7 @@ import { SecureHomepageComponent } from './secure-homepage/secure-homepage.compo
 import { SecureSongListComponent } from './secure-song-list/secure-song-list.component';
 import { SecureSongReviewComponent } from './secure-song-review/secure-song-review.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component'
 import { AuthGuard } from './auth.guard';
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'api/open', component: OpenHomepage},
   {path: 'api/open/song', component: OpenSongListComponent},
   {path: 'api/open/:id', component: OpenSongReviewComponent},
+  {path: 'api/activate', component: ActivateAccountComponent},
   {
     path: 'api/secure', 
     component: SecureHomepageComponent,

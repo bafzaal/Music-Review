@@ -12,6 +12,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { SecureSongListComponent } from './secure-song-list/secure-song-list.component';
 import { SecureSongReviewComponent } from './secure-song-review/secure-song-review.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AdminHomepageComponent } from './admin-homepage/admin-homepage.componen
     routingComponents,
     SecureSongListComponent,
     SecureSongReviewComponent,
-    AdminHomepageComponent
+    AdminHomepageComponent,
+    ActivateAccountComponent
   ],
   imports: [
     BrowserModule,
