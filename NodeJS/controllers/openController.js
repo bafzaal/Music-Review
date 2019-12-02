@@ -58,19 +58,17 @@ router.get('/song/:id', (req, res) => {
                 }
                 else
                 {
+                    var x = 0;
+                    var avg = 0;
                     for(var i = 0; i < revs.length; i++)
                     {
-                        var x = 0;
-                        var avg = 0;
-                        if(revs[i].objectID == doc.objectID && revs[i].ratingForObject != null)
+                        if(revs[i].objectID != null && revs[i].objectID == doc.objectID && revs[i].ratingForObject != null)
                         {
                             x += revs[i].ratingForObject
                         }
                     }
                     avg = x/doc.numRating;
                     doc.update({ avgRating: avg }, { new: true }, (err, doc) => {
-                        if(err)
-                            console.log('Error: ' + JSON.stringify(err, undefined, 2));
                     });
                 }
             });
