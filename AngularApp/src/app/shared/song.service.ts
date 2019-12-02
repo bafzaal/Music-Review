@@ -50,4 +50,32 @@ export class SongService {
     return this.http.get(base);
   }
 
+  setVisibilityTrue(str :string)
+  {
+    var base = 'http://localhost:8080/api/secure/song/set-visibility-true/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
+  setVisibilityFalse(str :string)
+  {
+    var base = 'http://localhost:8080/api/secure/song/set-visibility-false/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
+  setCopyrightTrue(str :string)
+  {
+    var base = 'http://localhost:8080/api/secure/song/set-copyright-true/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
+  setCopyrightFalse(str :string)
+  {
+    var base = 'http://localhost:8080/api/secure/song/set-copyright-false/';
+    base = base + str;
+    return this.http.get(base);
+  }
+
 }

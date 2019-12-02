@@ -72,4 +72,67 @@ export class AdminHomepageComponent implements OnInit {
     });
   }
 
+  changeCopyright(s: string, c :string, b: boolean)
+  {
+
+    if(s == null || c == null)
+    {
+      document.getElementById('result7').innerText = "Both song and violation must be selected."
+    }
+
+    else
+    {
+
+      for (var i = 0; i < this.songService.songs.length; i++)
+      {
+        if(this.songService.songs[i].songTitle == s)
+        {
+          s = this.songService.songs[i]._id
+        }
+      }
+
+      if(b==null)
+      {
+        b = false;
+      }
+      if(b == true)
+      {
+        this.songService.setVisibilityFalse(s).subscribe((res) => {
+          this.getSongs();
+        });
+      }
+      if(b == false)
+      {
+        this.songService.setVisibilityTrue(s).subscribe((res) => {
+          this.getSongs();
+        });
+      }
+
+      this.songService.setCopyrightTrue(s).subscribe((res) => {
+        this.getSongs();
+      });
+
+      var x = <HTMLSelectElement>document.getElementById('select')
+      x.selectedIndex = 0;
+
+      var y = <HTMLSelectElement>document.getElementById('songSelect')
+      y.selectedIndex = 0;
+
+      var dateValue = <HTMLInputElement>document.getElementById('dateInput');
+      dateValue.value = ""
+
+      document.getElementById('result7').innerText = "Success."
+
+  }
+
+  }
+
+  clearCopyright(s: string)
+  {
+    this.songService.setCopyrightFalse(s).subscribe((res) => {
+      this.getSongs();
+    });
+  }
+
+
 }

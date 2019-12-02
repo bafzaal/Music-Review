@@ -22,7 +22,7 @@ export class PrivacyPolicyComponent implements OnInit {
   {
     // console.log(document.getElementById('changeable'));
     console.log(this.userService.upPolicy)
-    this.userService.activate(this.userService.changePolicy).subscribe(
+    this.userService.upPolicy(this.userService.changePolicy).subscribe(
       (res: any) => {
         console.log(res);
         if(res.admin == true)

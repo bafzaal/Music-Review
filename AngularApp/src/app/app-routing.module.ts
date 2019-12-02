@@ -46,4 +46,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [OpenHomepage, OpenSongListComponent, OpenSongReviewComponent, SecureHomepageComponent, SecureSongListComponent]
+export const routingComponents = [OpenHomepage, OpenSongListComponent, OpenSongReviewComponent, SecureHomepageComponent, SecureSongListComponent, AdminHomepageComponent]

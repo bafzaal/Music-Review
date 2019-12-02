@@ -69,6 +69,7 @@
             <th scope="col">Artist</th>
             <th scope="col">Album</th>
             <th scope="col">Visible</th>
+            <th scope="col">Copyright Claim</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -78,10 +79,47 @@
             <td>{{ sng.artist }}</td>
             <td>{{ sng.album }}</td>
             <td>{{ sng.visibility }}</td>
+            <td>{{ sng.copyright }}</td>
             <td>
                 <button (click)="changeVis(sng._id)" class="btn btn-outline-secondary song-more">Change Visibility</button>
+                <button (click)="clearCopyright(sng._id)" class="btn btn-outline-secondary song-more">Clear Copyright</button>
             </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<br>
+<br>
+<h1 class="heading-1"><span>Update Violations</span></h1> 
+<br>
+<div class="block-center">
+        <form class="form fw text-center" role="form">
+        <p id="result7" class="output text-center"></p>
+        <br>
+        <div class="form-group">
+            <select id="select" [(ngModel)]="selectedViolation" name="violation" class="form-control form-control-sm">
+                <option selected>Select Violation</option>
+                <option>Take Down Request</option>
+                <option>Infringement Notice</option>
+                <option>Dispute Claim</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select id="songSelect" [(ngModel)]="selectedSong" name="song" class="form-control form-control-sm">
+                <option value="" selected>Select Song</option>
+                <option *ngFor="let sng of songService.songs">{{sng.songTitle}}</option>
+            </select>
+        </div>
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="isChecked" name="hideSong" id="hideSong" class="form-check-input" type="checkbox">
+            <label class="form-check-label" for="hideSong">Hide Song</label>
+        </div>
+        <div class="form-group">
+            <input name="dateInput" id="dateInput" placeholder="Date" class="form-control form-control-sm" type="text" required="">
+        </div>
+        <div class="form-group">
+            <button (click)="changeCopyright(selectedSong, selectedViolation, isChecked)" type="submit" class="btn btn-primary bcklog btn-block">Submit</button>
+        </div>
+        </form>
+    </div>

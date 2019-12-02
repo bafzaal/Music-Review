@@ -15,6 +15,7 @@ export class UserService {
   loggedUserData: User|{}={};
   activateUserData: User|{}={};
   changePolicy: User|{}={};
+  switchString: string;
   readonly baseURL = 'http://localhost:8080/api/open/register'
 
   constructor(private http : HttpClient) { }

@@ -12,7 +12,8 @@ var Song = mongoose.model('Song',
     avgRating: {type: Number, require:true, default:0},
     numReviews: {type: Number, require:true, default:0},
     numRating: {type: Number, require:true, default:0},
-    visibility: {type: Boolean, require:true, default:true}
+    visibility: {type: Boolean, require:true, default:true},
+    copyright: {type: Boolean, require:true, default:false}
 });
 
 module.exports = { Song };

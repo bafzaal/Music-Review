@@ -11,4 +11,5 @@ export class Song {
     numReviews: number;
     numRating: number;
     visibility: boolean;
+    copyright: boolean;
 }
