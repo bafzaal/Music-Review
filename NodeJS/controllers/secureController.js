@@ -284,6 +284,29 @@ router.post('/add-review-rating/', verify, (req, res) => {
         ratingForObject: req.body.ratingForObject,
         description: req.body.description
     });
+    if(req.body.ratingForObject != null)
+    {
+        Song.findOne({objectID: req.body.objectID}).exec(function (err, product) {
+            if (err) {
+                console.error('Error retrieving by id!');
+            } else {
+                product.update({ numRating: product.numRating + 1 }, { new: true }, (err, doc) => {
+                    if(err)
+                        console.log('Error: ' + JSON.stringify(err, undefined, 2));
+                });
+            }
+        })
+    }
+    Song.findOne({objectID: req.body.objectID}).exec(function (err, product) {
+        if (err) {
+            console.error('Error retrieving by id!');
+        } else {
+            product.update({ numReviews: product.numReviews + 1 }, { new: true }, (err, doc) => {
+                if(err)
+                    console.log('Error: ' + JSON.stringify(err, undefined, 2));
+            });
+        }
+    })
     newReview.save((err, doc) => {
         if (err)
         {
